@@ -33,10 +33,6 @@ body{
     /* Firefox */
 }
 
-.sidebar {
-    overflow: visible;
-}
-
 .sidebar::ms-scrollbar,
 .sidebar::webkit-scrollbar {
     display: none;
@@ -44,6 +40,7 @@ body{
 
 .sidebar.close {
     width: 80px;
+    overflow: visible;
 }
 
 .sidebar .logo-container {
