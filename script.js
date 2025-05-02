@@ -1,40 +1,48 @@
 let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-   console.log(arrowParent);
-   
-   arrowParent.classList.toggle("showMenu");
-    });
-  }
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e) => {
+    let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+    console.log(arrowParent);
 
-  let sidebar = document.querySelector(".sidebar");
-  let header = document.querySelector(".header-section");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-    header.classList.toggle("close");
-    
+    arrowParent.classList.toggle("showMenu");
   });
+}
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    const body = document.body;
+let sidebar = document.querySelector(".sidebar");
+let header = document.querySelector(".header-section");
+
+function toggleSidebar() {
+  sidebar.classList.toggle("close");
+  header.classList.toggle("close");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
 
   // load saved theme from local storage
-  if(localStorage.getItem("theme")==="dark"){
-    body.setAttribute("data-theme","dark");
-    themeToggleBtn.classList.replace("bx-moon","bx-sun");
+  if (localStorage.getItem("theme") === "dark") {
+    body.setAttribute("data-theme", "dark");
+    themeToggleBtn.classList.replace("bx-moon", "bx-sun");
+  } else {
+    body.setAttribute("data-theme", "light");
+    themeToggleBtn.classList.replace("bx-sun", "bx-moon");
   }
-  themeToggleBtn.addEventListener("click", function() {
-    if(body.getAttribute("data-theme")==="dark"){
-      body.setAttribute("data-theme","light");
-      themeToggleBtn.classList.replace("bx-sun","bx-moon");
+  // Auto-close sidebar on small screens
+  if (window.innerWidth <= 768) {
+    sidebar.classList.add("close");
+    header.classList.add("close");
+  }
 
-    }else{
-      body.setAttribute("data-theme","dark");
-      themeToggleBtn.classList.replace("bx-moon","bx-sun");
-      }
-    });
-  })
+  themeToggleBtn.addEventListener("click", function () {
+    if (body.getAttribute("data-theme") === "dark") {
+      body.setAttribute("data-theme", "light");
+      themeToggleBtn.classList.replace("bx-sun", "bx-moon");
+      localStorage.setItem("theme", "light");
+    } else {
+      body.setAttribute("data-theme", "dark");
+      themeToggleBtn.classList.replace("bx-moon", "bx-sun");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+});
