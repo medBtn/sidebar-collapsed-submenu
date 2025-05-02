@@ -1,3 +1,31 @@
+:root {
+    --color-bg: #faf9fa;
+    --color-sidebar-bg: #ffffff;
+    --color-sidebar-shadow: rgba(236, 222, 236, 0.12);
+    --color-logo-icon: rgb(129, 0, 172);
+    --color-logo-bg: rgb(248, 245, 247);
+    --color-logo-name: rgb(108, 23, 137);
+    --color-link: rgb(125, 94, 138);
+    --color-link-hover: rgb(179, 0, 255);
+    --color-link-icon: rgb(132, 123, 136);
+    --color-divider: rgb(236, 222, 236);
+    --color-header: #5d2b60;
+}
+
+[data-theme="dark"] {
+    --color-bg: #252239;
+    --color-sidebar-bg: #232136;
+    --color-sidebar-shadow: rgba(30, 27, 46, 0.3);
+    --color-logo-icon: #d9aaff;
+    --color-logo-bg: #2a273f;
+    --color-logo-name: #e0def4;
+    --color-link: #d8dafd;
+    --color-link-hover: #f58f00;
+    --color-link-icon: #a6accd;
+    --color-divider: #393552;
+    --color-header: #e0def4;
+}
+
 /* Noto font family */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -9,17 +37,17 @@
 }
 
 body {
-    background: #faf9fa;
+    background: var(--color-bg);
 }
 
 .sidebar {
+    background: var(--color-sidebar-bg);
+    box-shadow: 0px 0px 4px 4px var(--color-sidebar-shadow);
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 260px;
-    background: #ffffff;
-    box-shadow: 0px 0px 4px 4px rgba(236, 222, 236, 0.12);
     z-index: 100;
     transition: all 0.5s ease;
     display: flex;
@@ -54,24 +82,24 @@ body {
     top: 12px;
     left: 0;
     z-index: 1000;
-    background: #ffffff;
+    background: var(--color-sidebar-bg)
 }
 
 .sidebar .logo-container i {
     font-size: 30px;
-    color: rgb(129, 0, 172);
+    color: var(--color-logo-icon);
     height: 48px;
     min-width: 48px;
     text-align: center;
     justify-content: center;
     line-height: 50px;
-    background-color: rgb(248, 245, 247);
+    background-color: var(--color-logo-bg);
     border-radius: 24%;
 }
 
 .sidebar .logo-container .logo-name {
     font-size: 22px;
-    color: rgb(108, 23, 137);
+    color: var(--color-logo-name);
     font-weight: 600;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -92,9 +120,9 @@ body {
     list-style: none;
 
     &&:hover {
-        background-color: rgb(248, 245, 247);
+        background-color: var(--color-logo-bg);
         border-radius: 12px;
-        transition: all 0.4 s ease;
+        transition: all 0.4s ease;
     }
 }
 
@@ -108,7 +136,7 @@ body {
     line-height: 50px;
     text-align: center;
     font-size: 20px;
-    color: rgb(132, 123, 136);
+    color: var(--color-link-icon);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -144,10 +172,10 @@ body {
 .sidebar .nav-links li a .link-name {
     font-size: 18px;
     font-weight: 400;
-    color: rgb(125, 94, 138);
+    color: var(--color-link);
 
     &&:hover {
-        color: rgb(179, 0, 255);
+        color: var(--color-link);
 
     }
 }
@@ -159,7 +187,8 @@ body {
 
 .sidebar .nav-links li .sub-menu {
     padding: 8px 8px 14px 80px;
-    background: rgb(248, 245, 247);
+    background: var(--color-logo-bg);
+    ;
     border-radius: 4px;
     margin-top: -8px;
     display: none;
@@ -170,7 +199,7 @@ body {
 }
 
 .sidebar .nav-links li .sub-menu a {
-    color: rgb(125, 94, 138);
+    color: var(--color-link);
     font-size: 15px;
     padding: 4px 0px;
     white-space: nowrap;
@@ -226,7 +255,7 @@ body {
 .sidebar .nav-links .divider {
     height: 2px;
     width: 100%;
-    background-color: rgb(236, 222, 236);
+    background-color: var(--color-divider);
     border-radius: 4px;
     margin: 12px 0px;
 }
@@ -246,7 +275,7 @@ body {
 }
 
 .header-section .header-content .bx-menu {
-    color: #5d2b60;
+    color: var(--color-logo-icon);
     font-size: 28px;
     margin: 8px;
     cursor: pointer;
@@ -254,7 +283,7 @@ body {
 }
 
 .header-section .header-content .title {
-    color: #5d2b60;
+    color: var(--color-header);
     font-size: 24px;
     font-weight: 600;
 }
