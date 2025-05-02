@@ -17,3 +17,24 @@ let arrow = document.querySelectorAll(".arrow");
     header.classList.toggle("close");
     
   });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+  // load saved theme from local storage
+  if(localStorage.getItem("theme")==="dark"){
+    body.setAttribute("data-theme","dark");
+    themeToggleBtn.classList.replace("bx-moon","bx-sun");
+  }
+  themeToggleBtn.addEventListener("click", function() {
+    if(body.getAttribute("data-theme")==="dark"){
+      body.setAttribute("data-theme","light");
+      themeToggleBtn.classList.replace("bx-sun","bx-moon");
+
+    }else{
+      body.setAttribute("data-theme","dark");
+      themeToggleBtn.classList.replace("bx-moon","bx-sun");
+      }
+    });
+  })
